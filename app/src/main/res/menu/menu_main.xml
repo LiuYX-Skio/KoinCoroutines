@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item
+		android:id="@+id/timeFragment"
+		android:icon="@drawable/time_select"
+		android:title="倒计时"/>
+
+	<item
+		android:id="@+id/challengeFragment"
+		android:icon="@drawable/challenge_select"
+		android:title="挑战营"/>
+
+	<item
+		android:id="@+id/mineFragment"
+		android:icon="@drawable/mine_select"
+		android:title="我"/>
+
+
+</menu>

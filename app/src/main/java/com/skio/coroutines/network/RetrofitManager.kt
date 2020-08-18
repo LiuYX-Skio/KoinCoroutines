@@ -39,7 +39,7 @@ object RetrofitManager {
       .readTimeout(10_000, TimeUnit.MILLISECONDS)
       .writeTimeout(30_000, TimeUnit.MILLISECONDS)
       .addInterceptor(LoginInterceptor())
-//      .addInterceptor(httpLoggingInterceptor)
+      .addInterceptor(httpLoggingInterceptor)
       .build()
   }
 }

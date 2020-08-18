@@ -9,9 +9,11 @@ import kotlinx.coroutines.withContext
  * @description
  */
 class MineRepository(private val api: ApiService) {
+
   suspend fun getUserInfo() =
     withContext(Dispatchers.IO) {
       api.getUserInfo()
     }
+
 
 }

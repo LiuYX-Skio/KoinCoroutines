@@ -22,7 +22,7 @@ suspend fun <T> BaseResultData<T>.handleResult(
     ok: suspend (T) -> Unit = {}
 ) {
     if (code == 0) ok(result)
-    else fail(msg)
+    else fail(""+success)
 }
 
 @Suppress("DEPRECATION")

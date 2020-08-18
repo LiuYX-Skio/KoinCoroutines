@@ -1,6 +1,6 @@
 package com.skio.coroutines.entity.user
 
-class UserInfoEntity() {
+class UserInfoEntity {
   var authStatus: String? = null
   var companyCode: String? = null
   var realname: String? = null

@@ -8,5 +8,5 @@ package com.skio.coroutines.base
 data class BaseResultData<T>(
     val `result`: T,
     val code: Int,
-    val msg: String
+    val success: Boolean
 )

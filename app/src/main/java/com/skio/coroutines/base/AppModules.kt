@@ -30,6 +30,7 @@ val repositoryModule = module {
 }
 
 val fragmentModule = module {
+
 }
 
 val adapterModule = module {

@@ -5,7 +5,7 @@ import com.skio.coroutines.R
 import com.skio.coroutines.databinding.FragmentChallengeBinding
 import com.skio.coroutines.fragment.main.model.MineViewModel
 
-class ChallengeFragment : BaseFragment<FragmentChallengeBinding,MineViewModel?>() {
+class ChallengeFragment() : BaseFragment<FragmentChallengeBinding,MineViewModel?>() {
 
 
   override fun bindLayout(): Int = R.layout.fragment_challenge

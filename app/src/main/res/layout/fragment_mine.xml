@@ -4,11 +4,8 @@
   xmlns:bind="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools">
 
-  <data >
+  <data class="CommonRefreshList" >
     <import type="com.skio.coroutines.fragment.main.model.MineViewModel" />
-    <variable
-      name="data"
-      type="com.skio.coroutines.fragment.main.model.MineViewModel" />
 
     <variable
       name="vm"

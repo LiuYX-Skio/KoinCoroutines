@@ -1,5 +1,6 @@
 package com.skio.coroutines.fragment.main.model
 
+import android.util.Log
 import androidx.databinding.ObservableField
 import com.skio.coroutines.base.BaseViewModel
 import com.skio.coroutines.network.LoadState
@@ -17,6 +18,7 @@ class MineViewModel : BaseViewModel() {
     launch(CoroutineExceptionHandler { _, err ->
       loadState.set(LoadState.Failed(err))
     }) {
+
       loadState.set(LoadState.Loading)
       var resp=UserRepository.instance
         .getUserInfo()

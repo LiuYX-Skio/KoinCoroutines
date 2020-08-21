@@ -20,7 +20,7 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 
 /**
- * @author kuky.
+ * @author LiuYX.
  * @description
  */
 typealias OnDialogFragmentDismissListener = (DialogInterface) -> Unit

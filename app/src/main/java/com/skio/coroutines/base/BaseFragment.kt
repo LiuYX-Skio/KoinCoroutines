@@ -5,66 +5,106 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatDelegate
+import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.Fragment
-import com.skio.coroutines.utils.KLogger
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.cancel
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.ViewModelProvider
+
 
 /**
- * @author kuky.
- * @description
+ * @author LiuYX
+ *
  */
-abstract class BaseFragment<VB : ViewDataBinding> : Fragment(), CoroutineScope by MainScope(),
-  KLogger {
+abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel?> : Fragment() {
 
-    protected var mBinding: VB? = null
+  protected lateinit var mBinding: V
+  protected  var mViewModel: VM?=null
+  protected val bindingList: MutableList<ViewDataBinding> = mutableListOf()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        retainInstance = true
+  // 是否切换了横竖屏
+  protected var diffOrientation = false
 
-        if (mBinding == null) {
-            mBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
-            actionsOnViewInflate()
+  var initializer: (() -> Unit)? = null
+
+
+  protected var onCreated = false
+  protected var lazyCreated = false
+
+  override fun onCreateView(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View? {
+    mBinding = DataBindingUtil.inflate(inflater, bindLayout(), container, false)
+    mBinding.lifecycleOwner = this
+    mViewModel?.let {
+      lifecycle.addObserver(it as LifecycleObserver)
+      mBinding.setVariable(bindViewModel(), it)
+    }
+//    initViewModel()
+
+    mBinding.root.isClickable = true
+    onCreated = true
+    return mBinding.root
+  }
+
+//  /**
+//   * 初始化ViewModel
+//   */
+//  private fun initViewModel() {
+//    mViewModel = ViewModelProvider(this).get(viewModelClass())
+//  }
+
+
+  override fun onDestroyView() {
+    super.onDestroyView()
+    bindingList.forEach { it.unbind() }
+    mBinding.unbind()
+  }
+
+  override fun onActivityCreated(savedInstanceState: Bundle?) {
+    super.onActivityCreated(savedInstanceState)
+    init(savedInstanceState)
+    initializer?.invoke()
+  }
+
+  protected fun lazyInit() {
+    lazyCreated = true
+    mViewModel?.let {
+      if (it != null) {
+        if (!it.lazyCreated) {
+          it.lazyInit()
         }
-
-        return if (mBinding != null) {
-            mBinding!!.root.apply { (parent as? ViewGroup)?.removeView(this) }
-        } else super.onCreateView(inflater, container, savedInstanceState)
+      }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        mBinding?.lifecycleOwner = this
-        initFragment(view, savedInstanceState)
-    }
+  }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        if (needFitDarkMode())
-            when (newConfig.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-                Configuration.UI_MODE_NIGHT_YES -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                Configuration.UI_MODE_NIGHT_NO -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            }
-    }
+  abstract fun init(savedInstanceState: Bundle?)
 
-    override fun onDestroy() {
-        super.onDestroy()
-        cancel()
-        mBinding?.unbind()
-    }
 
-    /**
-     * 该方法完整走完一个生命周期只会走一次，可用于该页面进入时网络请求
-     */
-    open fun actionsOnViewInflate() {}
+  protected fun addSubBinding(binding: ViewDataBinding) {
+    binding.lifecycleOwner = this
+    bindingList.add(binding)
+  }
 
-    abstract fun getLayoutId(): Int
+  override fun onConfigurationChanged(newConfig: Configuration) {
+    super.onConfigurationChanged(newConfig)
+    diffOrientation = !diffOrientation
+  }
 
-    abstract fun initFragment(view: View, savedInstanceState: Bundle?)
 
-    protected open fun needFitDarkMode(): Boolean = true
+  @LayoutRes
+  abstract fun bindLayout(): Int
+
+//  /**
+//   * 获取ViewModel的class
+//   */
+//  protected abstract fun viewModelClass(): Class<VM>
+
+  open fun bindViewModel() : Int = BR.vm
+
 }

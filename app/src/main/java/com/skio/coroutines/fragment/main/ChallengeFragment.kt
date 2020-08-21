@@ -1,13 +1,15 @@
 package com.skio.coroutines.fragment.main
 import com.skio.coroutines.base.*
 import android.os.Bundle
-import android.view.View
 import com.skio.coroutines.R
 import com.skio.coroutines.databinding.FragmentChallengeBinding
+import com.skio.coroutines.fragment.main.model.MineViewModel
 
-class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
-  override fun getLayoutId(): Int = R.layout.fragment_challenge
+class ChallengeFragment : BaseFragment<FragmentChallengeBinding,MineViewModel?>() {
 
-  override fun initFragment(view: View, savedInstanceState: Bundle?) {
+
+  override fun bindLayout(): Int = R.layout.fragment_challenge
+  override fun init(savedInstanceState: Bundle?) {
   }
+
 }

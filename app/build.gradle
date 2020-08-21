@@ -88,6 +88,11 @@ dependencies {
   kapt rootProject.ext.dependencies["compiler"]
   implementation rootProject.ext.dependencies["banner"]
   implementation rootProject.ext.dependencies["fab"]
+  implementation rootProject.ext.dependencies["retrofit-adapter"]
+  implementation rootProject.ext.dependencies["retrofit_converter_moshi"]
+  implementation rootProject.ext.dependencies["moshi-kotlin"]
+  implementation rootProject.ext.dependencies["yokeyword"]
+//  implementation rootProject.ext.dependencies["moshi-kotlin-codegen"]
 
 
 }

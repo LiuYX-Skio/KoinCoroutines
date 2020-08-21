@@ -11,7 +11,7 @@ import com.skio.coroutines.utils.KLogger
 
 
 /**
- * @author kuky.
+ * @author LiuYX.
  * @description recycler adapter 基类
  */
 abstract class BaseRecyclerAdapter<T>(var mData: MutableList<T>?) :

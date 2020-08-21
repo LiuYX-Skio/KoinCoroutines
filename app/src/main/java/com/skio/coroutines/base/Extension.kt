@@ -10,7 +10,7 @@ import androidx.core.text.HtmlCompat
 import org.jetbrains.anko.toast
 
 /**
- * @author kuky.
+ * @author LiuYX.
  * @description
  */
 fun Context.stringValue(@StringRes stringRes: Int) = resources.getString(stringRes)

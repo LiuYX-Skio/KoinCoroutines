@@ -22,7 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by yangzhe on 2016/12/1.
+ * Created by LiuYX.
+ *
  */
 public class BottomMenuView extends LinearLayout implements View.OnClickListener{
   private static final String TAG = "BottomMenuView";

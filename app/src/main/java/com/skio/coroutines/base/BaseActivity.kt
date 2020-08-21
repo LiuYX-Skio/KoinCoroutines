@@ -16,7 +16,7 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 
 /**
- * @author kuky.
+ * @author LiuYX.
  * @description Activity 基类
  */
 abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),

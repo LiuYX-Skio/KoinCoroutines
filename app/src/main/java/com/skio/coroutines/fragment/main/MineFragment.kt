@@ -2,54 +2,25 @@ package com.skio.coroutines.fragment.main
 import com.skio.coroutines.base.*
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import com.skio.coroutines.R
 import com.skio.coroutines.databinding.FragmentMineBinding
 import com.skio.coroutines.fragment.main.model.MineViewModel
 import com.skio.coroutines.utils.ToastUtils
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.*
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import kotlinx.android.synthetic.main.fragment_mine.*
 
-class MineFragment : BaseFragment<FragmentMineBinding>() {
-  private val mMineViewModel by sharedViewModel<MineViewModel>()
-  private var mUserJob: Job? = null
+class MineFragment : BaseFragment<FragmentMineBinding,MineViewModel?>() {
 
-  override fun getLayoutId(): Int = R.layout.fragment_mine
 
-  override fun initFragment(view: View, savedInstanceState: Bundle?) {
-    mBinding?.run {
-      mineFragment = this@MineFragment
-      viewModel = mMineViewModel
-
+  override fun init(savedInstanceState: Bundle?) {
+    cancel_bt.setOnClickListener {
+      ToastUtils.showToast(activity,"正在请求")
+      mViewModel?.getUserInfo()
     }
-
-  }
-  override fun actionsOnViewInflate() {
-
   }
 
-  fun onGetUser(view: View){
-    getUser()
-  }
 
-  @OptIn(ExperimentalCoroutinesApi::class)
-  private fun getUser() {
-    mUserJob?.cancel()
-    mUserJob=launch {
-      mMineViewModel.getUserInfo().catch {
+  override fun bindLayout(): Int= R.layout.fragment_mine;
 
-      }.onStart {
 
-      }.onCompletion {
-
-      }.collectLatest {
-        if (it == null) return@collectLatest
-
-      }
-    }
-
-  }
 
 }

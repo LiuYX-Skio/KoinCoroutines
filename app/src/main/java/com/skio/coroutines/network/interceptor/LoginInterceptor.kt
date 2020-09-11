@@ -25,33 +25,27 @@ class LoginInterceptor : Interceptor {
                   appVersion
                 )
           .header("fromType", "2")
-          .header("token", "412af02bedfe406b9d546f9af0945474e601470117eb304bb4de4c25389114e7")
-                .header("phoneModels", ClientUtils.getModel())
-        if (!token.isEmpty()) {
-            newBuilder.addHeader("token",
-              "412af02bedfe406b9d546f9af0945474e601470117eb304bb4de4c25389114e7"
-            )
-        }
+           .header("phoneModels", ClientUtils.getModel())
 
         //2 Form数据转json
-        if (request.method == "POST") {
-            val body = request.body!!
-            if (body is FormBody) {
-                val map = mutableMapOf<String, String>()
-
-                if (!form2jsonInterceptor.any { return@any it.contains(request.url.toString()) }) {
-                    for (i in 0 until body.size) {
-                        val name = body.name(i)
-                        val value = body.value(i)
-                        map[name] = value
-                    }
-                    if (map.isNotEmpty()) {
-                        val newRequestBody = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), Gson().toJson(map))
-                        newBuilder.method("POST", newRequestBody)
-                    }
-                }
-            }
-        }
+//        if (request.method == "POST") {
+//            val body = request.body!!
+//            if (body is FormBody) {
+//                val map = mutableMapOf<String, String>()
+//
+//                if (!form2jsonInterceptor.any { return@any it.contains(request.url.toString()) }) {
+//                    for (i in 0 until body.size) {
+//                        val name = body.name(i)
+//                        val value = body.value(i)
+//                        map[name] = value
+//                    }
+//                    if (map.isNotEmpty()) {
+//                        val newRequestBody = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), Gson().toJson(map))
+//                        newBuilder.method("POST", newRequestBody)
+//                    }
+//                }
+//            }
+//        }
         return chain.proceed(newBuilder.build())
     }
 

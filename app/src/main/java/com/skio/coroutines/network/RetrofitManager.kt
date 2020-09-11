@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
  */
 object RetrofitManager {
   private val logger = kLogger<RetrofitManager>()
-  private var BASE_URL = "http://192.168.8.212:8012"
+  private var BASE_URL = "http://www.jihuabiao.net:8890"
   private const val DEFAULT_TIMEOUT :Long= 5
   val apiService: ApiService = Retrofit.Builder()
     .baseUrl(BASE_URL)

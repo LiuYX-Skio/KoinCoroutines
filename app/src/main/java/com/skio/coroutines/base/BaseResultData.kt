@@ -6,7 +6,7 @@ package com.skio.coroutines.base
  */
 
 data class BaseResultData<T>(
-    val `result`: T,
+    val `data`: T,
     val code: Int,
-    val success: Boolean
+    val message: Boolean
 )

@@ -1,7 +1,6 @@
 package com.skio.coroutines.network
 
 import com.skio.coroutines.base.BaseResultData
-import com.skio.coroutines.entity.user.UserInfoEntity
 import retrofit2.http.*
 
 /**
@@ -10,7 +9,7 @@ import retrofit2.http.*
  */
 interface ApiService {
 
-  @GET("/eas/fy/app/shipper/mine/user")
+  @GET("/plan/workuser/get_users_info")
   suspend fun getUserInfo(): BaseResultData<String>
 
 }

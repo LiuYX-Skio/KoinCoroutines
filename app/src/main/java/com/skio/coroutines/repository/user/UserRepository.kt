@@ -1,12 +1,13 @@
 package com.skio.coroutines.repository.user
 
-import com.lyj.fakepixiv.app.network.service.UserService
+import com.skio.coroutines.base.BaseResultData
 import com.skio.coroutines.entity.user.UserInfoEntity
 import com.skio.coroutines.network.RetrofitManager
+import com.skio.coroutines.network.service.UserService
 import kotlinx.coroutines.*
 
 /**
- * @author greensun
+ * @author LiuYX
  *
  * @date 2019/4/10
  *
@@ -24,11 +25,12 @@ class UserRepository private constructor(){
   /**
    * 获取用户信息
    */
-  suspend fun getUserInfo(): UserInfoEntity {
+  suspend fun getUserInfo(): BaseResultData<UserInfoEntity> {
+
     return withContext(Dispatchers.IO) {
-      val resp = service.getUserInfo().result
-      resp
+        service.getUserInfo("2c93167b6cadf9b8016cae01284e0001","1001","ptta7UBU7fS1WB821euWnwV2nzXpvC5B")
     }
+
   }
 
 

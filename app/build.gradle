@@ -23,8 +23,8 @@ android {
     }
 
     debug {
-      minifyEnabled true
-      shrinkResources true
+      minifyEnabled false
+      shrinkResources false
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
   }
@@ -92,6 +92,8 @@ dependencies {
   implementation rootProject.ext.dependencies["retrofit_converter_moshi"]
   implementation rootProject.ext.dependencies["moshi-kotlin"]
   implementation rootProject.ext.dependencies["yokeyword"]
+  implementation project(':baselibrary')
+
 //  implementation rootProject.ext.dependencies["moshi-kotlin-codegen"]
 
 

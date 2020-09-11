@@ -6,11 +6,15 @@ import com.skio.coroutines.R
 import com.skio.coroutines.base.BaseFragment
 import com.skio.coroutines.databinding.CommonRefreshList
 import com.skio.coroutines.fragment.main.model.MineViewModel
-import com.skio.coroutines.utils.ToastUtils
 import kotlinx.android.synthetic.main.fragment_mine.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class MineFragment : BaseFragment<CommonRefreshList,MineViewModel?>() {
+class MineFragment() : BaseFragment<CommonRefreshList,MineViewModel>() {
 
+  override var mViewModel: MineViewModel = MineViewModel()
 
   override fun init(savedInstanceState: Bundle?) {
     cancel_bt.setOnClickListener {
@@ -20,7 +24,6 @@ class MineFragment : BaseFragment<CommonRefreshList,MineViewModel?>() {
   }
 
   fun initData(){
-
     mViewModel?.getUserInfo()
 
   }

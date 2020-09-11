@@ -10,7 +10,8 @@ import retrofit2.http.*
  */
 interface ApiService {
 
-  @GET("/eas/fy/app/shipper/mine/user")
+  @GET("/plan/workuser/get_users_info")
   suspend fun getUserInfo(): BaseResultData<String>
+
 
 }

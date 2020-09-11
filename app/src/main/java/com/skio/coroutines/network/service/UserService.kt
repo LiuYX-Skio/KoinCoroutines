@@ -1,9 +1,12 @@
-package com.lyj.fakepixiv.app.network.service
+package com.skio.coroutines.network.service
 
+import com.google.gson.JsonElement
 import com.skio.coroutines.base.BaseResultData
 import com.skio.coroutines.base.Constant
 import com.skio.coroutines.entity.user.UserInfoEntity
+import com.skio.coroutines.entity.user.UserInfoResp
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 /**
@@ -24,8 +27,11 @@ interface UserService {
     /**
      * 获取账户信息
      */
-    @GET("/eas/fy/app/shipper/mine/user")
-    suspend fun getUserInfo(): BaseResultData<UserInfoEntity>
+    @POST("/plan/workuser/get_users_info")
+    @FormUrlEncoded
+    suspend fun getUserInfo(@Field("userId")userId: String = "2c93167b6cadf9b8016cae01284e0001",
+                            @Field("plat_source")plat_source: String = "1001",
+                            @Field("token")account: String = "ptta7UBU7fS1WB821euWnwV2nzXpvC5B"): BaseResultData<UserInfoEntity>
 
 
     /**

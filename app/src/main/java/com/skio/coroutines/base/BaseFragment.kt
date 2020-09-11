@@ -21,7 +21,7 @@ import androidx.lifecycle.ViewModelProvider
 abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel?> : Fragment() {
 
   protected lateinit var mBinding: V
-  protected  var mViewModel: VM?=null
+  abstract var mViewModel: VM
   protected val bindingList: MutableList<ViewDataBinding> = mutableListOf()
 
   // 是否切换了横竖屏

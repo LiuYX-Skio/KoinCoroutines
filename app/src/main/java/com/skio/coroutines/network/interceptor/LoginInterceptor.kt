@@ -34,24 +34,24 @@ class LoginInterceptor : Interceptor {
         }
 
         //2 Form数据转json
-        if (request.method == "POST") {
-            val body = request.body!!
-            if (body is FormBody) {
-                val map = mutableMapOf<String, String>()
-
-                if (!form2jsonInterceptor.any { return@any it.contains(request.url.toString()) }) {
-                    for (i in 0 until body.size) {
-                        val name = body.name(i)
-                        val value = body.value(i)
-                        map[name] = value
-                    }
-                    if (map.isNotEmpty()) {
-                        val newRequestBody = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), Gson().toJson(map))
-                        newBuilder.method("POST", newRequestBody)
-                    }
-                }
-            }
-        }
+//        if (request.method == "POST") {
+//            val body = request.body!!
+//            if (body is FormBody) {
+//                val map = mutableMapOf<String, String>()
+//
+//                if (!form2jsonInterceptor.any { return@any it.contains(request.url.toString()) }) {
+//                    for (i in 0 until body.size) {
+//                        val name = body.name(i)
+//                        val value = body.value(i)
+//                        map[name] = value
+//                    }
+//                    if (map.isNotEmpty()) {
+//                        val newRequestBody = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), Gson().toJson(map))
+//                        newBuilder.method("POST", newRequestBody)
+//                    }
+//                }
+//            }
+//        }
         return chain.proceed(newBuilder.build())
     }
 

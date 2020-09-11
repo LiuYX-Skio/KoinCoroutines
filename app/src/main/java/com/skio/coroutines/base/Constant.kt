@@ -2,7 +2,7 @@ package com.skio.coroutines.base
 
 class Constant {
   object Net {
-    const val BASE_URL = "http://192.168.8.212:8012"
+    const val BASE_URL = "http://www.jihuabiao.net:8890"
     const val AUTH_URL = "https://oauth.secure.pixiv.net"
     const val ACCOUNT_URL = "https://accounts.pixiv.net"
     const val EXT_URL = "http://149.28.73.52:8888"

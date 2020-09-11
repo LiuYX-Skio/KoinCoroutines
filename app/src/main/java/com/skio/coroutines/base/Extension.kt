@@ -21,8 +21,8 @@ suspend fun <T> BaseResultData<T>.handleResult(
     fail: suspend (String) -> Unit = { AppManager.instance.toast(it) },
     ok: suspend (T) -> Unit = {}
 ) {
-    if (code == 0) ok(result)
-    else fail(""+success)
+    if (code == 0) ok(data)
+    else fail("")
 }
 
 @Suppress("DEPRECATION")

@@ -35,19 +35,13 @@ class MineFragment : BaseFragment<FragmentMineBinding>() {
 
   @OptIn(ExperimentalCoroutinesApi::class)
   private fun getUser() {
-    Log.w("数据返回","111")
     launch {
       mMineViewModel.getUserInfo().catch {
-        Log.w("数据返回","错误")
       }.onStart {
-        Log.w("数据返回","开始")
       }.onCompletion {
-        Log.w("数据返回","完成")
 
       }.collectLatest {
-        Log.w("数据返回","===空数据")
         if (it == null) return@collectLatest
-        Log.w("数据返回","==="+it.data.phone)
 
       }
     }

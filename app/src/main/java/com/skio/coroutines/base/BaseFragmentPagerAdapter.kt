@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
 /**
- * @author kuky.
+ * @author LiuYX
  * @description ViewPager + Fragment Adapter 基类
  */
 class BaseFragmentPagerAdapter(fm: FragmentManager, fragments: ArrayList<out Fragment>, titles: Array<String>? = null) :

@@ -3,7 +3,7 @@ package com.skio.coroutines.base
 import android.app.Activity
 
 /**
- * @author kuky.
+ * @author LiuYX
  * @description activity 栈管理
  */
 object ActivityStackManager {

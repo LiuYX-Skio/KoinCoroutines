@@ -11,7 +11,7 @@ import com.skio.coroutines.interfaces.OnItemLongClickListener
 import com.skio.coroutines.utils.KLogger
 
 /**
- * @author kuky.
+ * @author LiuYX
  * @description paging adapter 基类, 如果需要多布局, 请使用 MergeAdapter
  */
 abstract class BasePagingDataAdapter<T : Any, VB : ViewDataBinding>(val callback: DiffUtil.ItemCallback<T>) :

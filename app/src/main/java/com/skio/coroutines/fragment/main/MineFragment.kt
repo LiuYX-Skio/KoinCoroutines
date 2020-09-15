@@ -7,7 +7,6 @@ import android.view.View
 import com.skio.coroutines.R
 import com.skio.coroutines.databinding.FragmentMineBinding
 import com.skio.coroutines.fragment.main.model.MineViewModel
-import com.skio.coroutines.utils.ToastUtils
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -37,11 +36,13 @@ class MineFragment : BaseFragment<FragmentMineBinding>() {
   private fun getUser() {
     launch {
       mMineViewModel.getUserInfo().catch {
+
       }.onStart {
       }.onCompletion {
 
       }.collectLatest {
         if (it == null) return@collectLatest
+        Log.w("数据返回","=="+it.data?.toString())
 
       }
     }

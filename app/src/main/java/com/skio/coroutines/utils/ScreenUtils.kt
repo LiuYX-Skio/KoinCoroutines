@@ -3,7 +3,7 @@ package com.kuky.demo.wan.android.utils
 import android.content.res.Resources
 
 /**
- * @author kuky.
+ * @author LiuYX
  * @description
  */
 val screenWidth = Resources.getSystem().displayMetrics.widthPixels

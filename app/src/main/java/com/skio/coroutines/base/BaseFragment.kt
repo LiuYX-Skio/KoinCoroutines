@@ -15,7 +15,7 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 
 /**
- * @author kuky.
+ * @author LiuYX
  * @description
  */
 abstract class BaseFragment<VB : ViewDataBinding> : Fragment(), CoroutineScope by MainScope(),

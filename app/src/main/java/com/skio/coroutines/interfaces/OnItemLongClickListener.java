@@ -4,7 +4,7 @@ package com.skio.coroutines.interfaces;
 import android.view.View;
 
 /**
- * @author kuky.
+ * @author LiuYX
  * @description RecyclerList的长按事件
  */
 public interface OnItemLongClickListener {

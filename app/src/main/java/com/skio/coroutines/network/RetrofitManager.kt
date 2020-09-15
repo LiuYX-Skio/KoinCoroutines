@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 
 /**
- * @author kuky.
+ * @author LiuYX
  * @description
  */
 object RetrofitManager {
@@ -35,9 +35,9 @@ object RetrofitManager {
     httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
     return OkHttpClient.Builder()
-      .connectTimeout(5_000L, TimeUnit.MILLISECONDS)
-      .readTimeout(10_000, TimeUnit.MILLISECONDS)
-      .writeTimeout(30_000, TimeUnit.MILLISECONDS)
+      .connectTimeout(60_000L, TimeUnit.MILLISECONDS)
+      .readTimeout(60_000L, TimeUnit.MILLISECONDS)
+      .writeTimeout(60_000L, TimeUnit.MILLISECONDS)
       .addInterceptor(LoginInterceptor())
       .addInterceptor(httpLoggingInterceptor)
       .build()

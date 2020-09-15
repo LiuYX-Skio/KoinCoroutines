@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.core.content.edit
 
 /**
- * @author kuky.
+ * @author LiuYX
  * @description
  */
 private const val SHARED_PREFERENCES_NAME = "com.base.share.preference"

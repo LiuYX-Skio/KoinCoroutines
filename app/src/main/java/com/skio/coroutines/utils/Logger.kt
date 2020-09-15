@@ -6,7 +6,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 /**
- * @author kuky.
+ * @author LiuYX
  * @description KLogger usage
  *
  * ```kotlin

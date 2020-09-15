@@ -3,7 +3,7 @@ package com.skio.coroutines.interfaces;
 import android.view.View;
 
 /**
- * @author kuky.
+ * @author LiuYX
  * @description Paging 下的点击事件
  */
 public interface OnItemClickListener {

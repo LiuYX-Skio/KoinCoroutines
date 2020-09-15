@@ -6,7 +6,7 @@ import com.skio.coroutines.utils.getString
 import com.skio.coroutines.utils.saveString
 
 /**
- * @author kuky.
+ * @author LiuYX
  * @description
  */
 object SearchHistoryUtils {

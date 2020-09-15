@@ -1,4 +1,4 @@
-package com.kuky.demo.wan.android.utils
+package com.skio.coroutines.utils
 
 import android.content.res.Resources
 

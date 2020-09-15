@@ -94,7 +94,7 @@ dependencies {
   implementation rootProject.ext.dependencies["yokeyword"]
   implementation project(':baselibrary')
 
-//  implementation rootProject.ext.dependencies["moshi-kotlin-codegen"]
+  implementation rootProject.ext.dependencies["moshi-kotlin-codegen"]
 
 
 }

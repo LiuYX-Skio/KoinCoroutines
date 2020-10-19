@@ -1,3 +1,6 @@
 [submodule "SubModlueTest"]
 	path = SubModlueTest
 	url = https://github.com/LiuYX-Skio/SubModlueTest.git
+[submodule "BaseLibrary"]
+	path = BaseLibrary
+	url = https://github.com/LiuYX-Skio/BaseLibrary.git

@@ -88,6 +88,7 @@ dependencies {
   kapt rootProject.ext.dependencies["compiler"]
   implementation rootProject.ext.dependencies["banner"]
   implementation rootProject.ext.dependencies["fab"]
+  implementation project(':BaseLibrary')
 
 
 }

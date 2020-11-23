@@ -3,6 +3,7 @@ package com.skio.coroutines.base
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -66,6 +67,7 @@ abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),
     to: Fragment,
     resId: Int
   ) {
+    Log.w("数据返回qqqq","=====")
     val transaction = manager.beginTransaction()
     //遍历隐藏所有添加的fragment
     for (fragment in manager.fragments) {

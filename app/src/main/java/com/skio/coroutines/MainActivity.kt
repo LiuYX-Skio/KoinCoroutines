@@ -1,6 +1,7 @@
 package com.skio.coroutines
 
 import android.os.Bundle
+import android.util.Log
 import com.skio.coroutines.base.BaseActivity
 import com.skio.coroutines.config.BaseMainConfig
 import com.skio.coroutines.customview.BottomMenuView.BottomItemOnClickListener
